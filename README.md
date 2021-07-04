@@ -5,7 +5,7 @@
 [URL](https://github.com/AyahZaareer/api-server/actions)
 
 ## Heroku Link:
-[URL](https://github.com/AyahZaareer/api-server/pull/5)
+[URL](https://ayah-basic-auth.herokuapp.com)
 
 ## Pull Request:
 [URL](https://github.com/AyahZaareer/api-server/pull/3)
