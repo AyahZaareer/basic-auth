@@ -2,7 +2,7 @@
 
 
 ## Test CI:
-[URL](https://github.com/AyahZaareer/api-server/actions)
+[URL](https://github.com/AyahZaareer/basic-auth/actions)
 
 ## Heroku Link:
 [URL](https://ayah-basic-auth.herokuapp.com)
