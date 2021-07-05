@@ -8,7 +8,7 @@
 [URL](https://ayah-basic-auth.herokuapp.com)
 
 ## Pull Request:
-[URL](https://github.com/AyahZaareer/basic-auth/pull/1)
+[URL](https://github.com/AyahZaareer/basic-auth/pull/2)
 
 ## Setup:
 1.clone the repo.
