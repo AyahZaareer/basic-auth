@@ -6,14 +6,14 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 
 
-const singInMiddleware = require('./middleware/basic');
+const signInMiddleware = require('./middleware/basic');
 
-const modelUser = require('./models/user-model');
+const User = require('./models/user-model');
 
-router.post('/singup', singupHandler);
-router.post('/singin', singInMiddleware, singinHandler);
+router.post('/signup', signupHandler);
+router.post('/signin', signInMiddleware, signinHandler);
 
-async function singinHandler(req, res) {
+async function signinHandler(req, res) {
     res.json(req.user);
 }
 
@@ -23,16 +23,19 @@ async function singinHandler(req, res) {
 // Two ways to test this route with httpie
 // echo '{"username":"john","password":"foo"}' | http post :3000/signup
 // http post :3000/signup usernmae=john password=foo
-async function singupHandler(req, res, next) {
+async function signupHandler(req, res) {
     try {
+
+
         req.body.password = await bcrypt.hash(req.body.password, 10);
-        const exist = await modelUser.findOne({ username: req.body.username }); //null
+        const exist = await User.findOne({ username: req.body.username }); //null
         if (exist) throw new Error('User exist');
-        const user = new modelUser(req.body);
-        const doc = await user.save();
-        res.status(201).json(doc);
+        const user = new User(req.body);
+        // console.log('user login', user);
+        user.save();
+        res.status(201).json(user);
     } catch (error) {
-        res.status(403).json({ message: error.message });
+        res.status(403).json('user not create');
     }
 }
 

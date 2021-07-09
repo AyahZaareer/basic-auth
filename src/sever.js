@@ -3,7 +3,7 @@
 // 3rd Party Resources
 const express = require('express');
 const cors = require('cors');
-const route = require('./auth/route');
+const router = require('./auth/route');
 
 const notFound = require('./middleware/404');
 const errorHandler = require('./middleware/500');
@@ -21,11 +21,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-app.use(route);
+app.use(router);
 app.get('/', (req, res) => {
     res.send('Welcome to the server');
 });
-app.get('/bad', (res, req) => {
+app.get('/bad', (req, res) => {
     throw new Error('Something wrong');
 })
 
